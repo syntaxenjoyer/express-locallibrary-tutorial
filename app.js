@@ -26,9 +26,9 @@ app.use(limiter);
 
 // Set up mongoose connection
 const mongoose = require('mongoose');
-const uri = process.env.ATLAS_URI;
+const dev_db_url = process.env.ATLAS_URI;
 mongoose.set('strictQuery', false);
-const mongoDB = uri
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 main().catch((err) => console.log(err));
 async function main() {
